@@ -1,8 +1,8 @@
 test_that("foreach loop with destination", {
   h2o::h2o.init()
-  if (h2o_running()) {
-    on.exit(h2o::h2o.shutdown(prompt = FALSE))
-  }
+  # if (h2o_running()) {
+  #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
+  # }
 
   doParallel::registerDoParallel()
   foreach::foreach(
@@ -27,9 +27,9 @@ test_that("foreach loop with destination", {
 
 test_that("foreach loop", {
   h2o::h2o.init()
-  if (h2o_running()) {
-    on.exit(h2o::h2o.shutdown(prompt = FALSE))
-  }
+  # if (h2o_running()) {
+  #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
+  # }
 
   doParallel::registerDoParallel()
   foreach::foreach(
