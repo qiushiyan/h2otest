@@ -1,8 +1,8 @@
 test_that("fitting model works 1", {
   h2o::h2o.init()
-  if (h2o_running()) {
-    on.exit(h2o::h2o.shutdown(prompt = FALSE))
-  }
+  # if (h2o_running()) {
+  #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
+  # }
 
 
   bank <- h2o.importFile(
@@ -15,16 +15,17 @@ test_that("fitting model works 1", {
                 training_frame = bank,
                 family = "binomial",
                 standardize = TRUE,
-                lambda_search = TRUE)
+                lambda_search = TRUE,
+                seed = 1)
   expect_snapshot(mod)
 })
 
 
 test_that("fitting model works 2", {
   h2o::h2o.init()
-  if (h2o_running()) {
-    on.exit(h2o::h2o.shutdown(prompt = FALSE))
-  }
+  # if (h2o_running()) {
+  #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
+  # }
 
   bank <- h2o.importFile(
     path ="https://s3.amazonaws.com/h2o-public-test-data/smalldata/demos/bank-additional-full.csv"
@@ -36,6 +37,7 @@ test_that("fitting model works 2", {
                  training_frame = bank,
                  family = "binomial",
                  standardize = TRUE,
-                 lambda_search = TRUE)
+                 lambda_search = TRUE,
+                 seed = 1)
   expect_snapshot(mod)
 })
