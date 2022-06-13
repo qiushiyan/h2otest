@@ -15,7 +15,8 @@ test_that("fitting model works 1", {
                 training_frame = bank,
                 family = "binomial",
                 standardize = TRUE,
-                lambda_search = TRUE)
+                lambda_search = TRUE,
+                seed = 1)
   expect_snapshot(mod)
 })
 
@@ -36,6 +37,7 @@ test_that("fitting model works 2", {
                  training_frame = bank,
                  family = "binomial",
                  standardize = TRUE,
-                 lambda_search = TRUE)
+                 lambda_search = TRUE,
+                 seed = 1)
   expect_snapshot(mod)
 })
