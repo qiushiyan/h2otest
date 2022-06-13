@@ -11,5 +11,6 @@ RoxygenNote: 7.2.0.9000
 Imports: 
     h2o
 Suggests: 
+    covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
