@@ -3,6 +3,7 @@ test_that("foreach loop with destination", {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
 
+
   doParallel::registerDoParallel()
   expect_success({
     foreach::foreach(
