@@ -3,10 +3,9 @@ test_that("foreach loop with destination", {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
 
-
+  skip("foreach tests")
   doParallel::registerDoParallel()
-  expect_success({
-    foreach::foreach(
+  mod <- foreach::foreach(
       seed = 1:20
     ) %dopar% {
       mtcars_hf <- h2o::as.h2o(mtcars,
@@ -21,9 +20,10 @@ test_that("foreach loop with destination", {
         family = "gaussian",
         seed = seed
       )
-      seed
+      mod
     }
-  })
+
+  expect_snapshot(mod)
 })
 
 
@@ -32,9 +32,9 @@ test_that("foreach loop", {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
 
+  skip("foreach tests")
   doParallel::registerDoParallel()
-  expect_success({
-    foreach::foreach(
+  mod <- foreach::foreach(
       seed = 1:20
     ) %dopar% {
       mtcars_hf <- h2o::as.h2o(mtcars)
@@ -47,7 +47,8 @@ test_that("foreach loop", {
         family = "gaussian",
         seed = seed
       )
-      seed
+
+      mod
     }
-  })
+  expect_snapshot(mod)
 })

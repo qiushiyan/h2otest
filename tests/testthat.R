@@ -5,6 +5,7 @@ library(h2otest)
 
 h2o::h2o.init()
 h2o::h2o.no_progress()
+set.seed(1)
 test_check("h2otest")
 
 h2o::h2o.show_progress()

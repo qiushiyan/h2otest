@@ -3,9 +3,8 @@ test_that("send data works 1", {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
 
-  expect_success({
-    iris_hf <- as.h2o(iris)
-  })
+  iris_hf <- as.h2o(iris)
+  expect_snapshot(iris_hf)
 })
 
 test_that("send data works 2", {
@@ -13,8 +12,7 @@ test_that("send data works 2", {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
 
-  expect_success({
-    iris_hf <- as.h2o(iris)
-  })
+  iris_hf <- as.h2o(iris)
+  expect_snapshot(iris_hf)
 
 })
