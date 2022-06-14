@@ -1,5 +1,4 @@
 test_that("fitting model works 1", {
-  h2o::h2o.init()
   # if (h2o_running()) {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
@@ -22,7 +21,6 @@ test_that("fitting model works 1", {
 
 
 test_that("fitting model works 2", {
-  h2o::h2o.init()
   # if (h2o_running()) {
   #   on.exit(h2o::h2o.shutdown(prompt = FALSE))
   # }
