@@ -4,23 +4,25 @@ test_that("foreach loop with destination", {
   # }
 
   doParallel::registerDoParallel()
-  foreach::foreach(
-    seed = 1:20
-  ) %dopar% {
-    mtcars_hf <- h2o::as.h2o(mtcars,
-                             destination_frame = paste0("train_frame",
-                                                        paste0("_", sample(letters, 3), collapse = "")))
-    x <- "mpg"
-    y <- "wt"
-    mod <- h2o::h2o.glm(
-      x = x,
-      y = y,
-      training_frame = mtcars_hf,
-      family = "gaussian",
-      seed = seed
-    )
-    seed
-  }
+  expect_success({
+    foreach::foreach(
+      seed = 1:20
+    ) %dopar% {
+      mtcars_hf <- h2o::as.h2o(mtcars,
+                               destination_frame = paste0("train_frame",
+                                                          paste0("_", sample(letters, 3), collapse = "")))
+      x <- "mpg"
+      y <- "wt"
+      mod <- h2o::h2o.glm(
+        x = x,
+        y = y,
+        training_frame = mtcars_hf,
+        family = "gaussian",
+        seed = seed
+      )
+      seed
+    }
+  })
 })
 
 
@@ -30,19 +32,21 @@ test_that("foreach loop", {
   # }
 
   doParallel::registerDoParallel()
-  foreach::foreach(
-    seed = 1:20
-  ) %dopar% {
-    mtcars_hf <- h2o::as.h2o(mtcars)
-    x <- "mpg"
-    y <- "wt"
-    mod <- h2o::h2o.glm(
-      x = x,
-      y = y,
-      training_frame = mtcars_hf,
-      family = "gaussian",
-      seed = seed
-    )
-    seed
-  }
+  expect_success({
+    foreach::foreach(
+      seed = 1:20
+    ) %dopar% {
+      mtcars_hf <- h2o::as.h2o(mtcars)
+      x <- "mpg"
+      y <- "wt"
+      mod <- h2o::h2o.glm(
+        x = x,
+        y = y,
+        training_frame = mtcars_hf,
+        family = "gaussian",
+        seed = seed
+      )
+      seed
+    }
+  })
 })
