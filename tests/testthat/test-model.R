@@ -17,7 +17,8 @@ test_that("fitting model works 1", {
                  lambda_search = TRUE,
                  seed = 1)
 
-  expect_snapshot(mod)
+  preds <- h2o.predict(mod, newdata = bank[1:6, ])
+  expect_snapshot(preds)
 })
 
 
@@ -39,6 +40,6 @@ test_that("fitting model works 2", {
                  lambda_search = TRUE,
                  seed = 1)
 
-  expect_snapshot(mod)
-
+  preds <- h2o.predict(mod, newdata = bank[1:6, ])
+  expect_snapshot(preds)
 })
